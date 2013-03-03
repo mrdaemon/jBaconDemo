@@ -17,8 +17,7 @@ public class StarField {
 		public float z;
 		
 		/**
-		 * Initialize new star with random position,
-		 * snap vertical and horizontal to nearest 4
+		 * Initialize new star with random position
 		 */
 		public Star() {
 			this.x = Utils.getRandomFloat(0, Conf.WIDTH);
