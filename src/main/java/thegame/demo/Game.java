@@ -16,8 +16,11 @@ import org.lwjgl.opengl.DisplayMode;
 public class Game {
 	
 	
+	private StarField starfield;
+	
 	// Magical game loop state
 	private boolean isRunning = false;
+	
 	
 	/**
 	 * Game entry point
@@ -26,6 +29,9 @@ public class Game {
 		init();
 		glInit();
 		resize(); // Setup initial size
+
+		Timeslice ticks = Timeslice.getInstance();
+		ticks.start();
 		
 		this.isRunning = true;
 		
@@ -34,7 +40,12 @@ public class Game {
 			if(Display.wasResized())
 				resize();
 			
+			update(ticks.getDelta());
+			
+			ticks.start(); // Reset counter
+			
 			render();
+			
 			
 			// Flip buffers, sync
 			Display.update();
@@ -57,13 +68,15 @@ public class Game {
 	 */
 	private void init() throws LWJGLException {
 		// Setup display
-		Display.setTitle("The Game");
+		Display.setTitle("Bacon Demo");
 		Display.setResizable(true);
 		Display.setDisplayMode(new DisplayMode(Conf.WIDTH, Conf.HEIGHT));
 		Display.setVSyncEnabled(Conf.VSYNC);
 		Display.setFullscreen(Conf.FULLSCREEN);
 		
 		Display.create();
+		
+		this.starfield = new StarField();
 	}
 	
 	/*
@@ -87,7 +100,11 @@ public class Game {
 		// Clear screen
 		GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT);
 		
-		// TODO: stub - render game
+		starfield.draw();
+	}
+	
+	private void update(long tdelta) {
+		starfield.update(tdelta);
 	}
 	
 	/*
