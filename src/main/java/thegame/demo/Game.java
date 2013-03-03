@@ -91,6 +91,7 @@ public class Game {
 		//GL11.glClearColor(0.0f, 0.0f, 0.0f, 0.0f); // Black
 		
 		GL11.glMatrixMode(GL11.GL_PROJECTION);
+		GL11.glOrtho(0, Conf.WIDTH, Conf.HEIGHT, 0, -1, 1);
 	}
 	
 	/*
