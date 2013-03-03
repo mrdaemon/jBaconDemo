@@ -10,6 +10,20 @@ public class Timeslice {
 	private boolean paused = false;
 	private boolean started = false;
 	
+	private static Timeslice instance;
+	
+	protected Timeslice() {
+		
+	}
+	
+	public static Timeslice getInstance() {
+		if (instance == null) {
+			instance = new Timeslice();
+		}
+		
+		return instance;
+	}
+	
 	/**
 	 * Start timer, record initial tick count
 	 */
