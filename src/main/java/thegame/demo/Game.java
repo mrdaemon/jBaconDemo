@@ -25,12 +25,6 @@ import org.lwjgl.opengl.DisplayMode;
  */
 public class Game {
 	
-	// Let's pretend we have settings or something
-	public static final boolean CONF_VSYNC = true;
-	public static final int CONF_FPS = 60;
-	public static final int CONF_WIDTH = 1280;
-	public static final int CONF_HEIGHT = 720;
-	public static final boolean CONF_FULLSCREEN = false;
 	
 	// Magical game loop state
 	private boolean isRunning = false;
@@ -54,7 +48,7 @@ public class Game {
 			
 			// Flip buffers, sync
 			Display.update();
-			Display.sync(CONF_FPS);	
+			Display.sync(Conf.FPS);
 		}
 		
 		destroy();
@@ -75,9 +69,9 @@ public class Game {
 		// Setup display
 		Display.setTitle("The Game");
 		Display.setResizable(true);
-		Display.setDisplayMode(new DisplayMode(CONF_WIDTH, CONF_HEIGHT));
-		Display.setVSyncEnabled(CONF_VSYNC);
-		Display.setFullscreen(CONF_FULLSCREEN);
+		Display.setDisplayMode(new DisplayMode(Conf.WIDTH, Conf.HEIGHT));
+		Display.setVSyncEnabled(Conf.VSYNC);
+		Display.setFullscreen(Conf.FULLSCREEN);
 		
 		Display.create();
 	}
