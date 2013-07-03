@@ -1,11 +1,11 @@
 ===============================
-          THE GAME
+          jBaconDemo
 ===============================
 
 About
 -----
 
-It is a game, then things get better.
+A port of Knifa's BaconDemo from C to Java.
 
 How
 ---
