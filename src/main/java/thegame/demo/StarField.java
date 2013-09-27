@@ -27,8 +27,7 @@ public class StarField {
 	}
 	
 	private StarField.Star[] stars; 
-	private float xVelocity = 0.0f;
-	//private float yVelocity = 0.0f;
+	private float velocity = 0.0f;
 	private float angle = 0.0f;
 
 	public StarField() {
@@ -72,13 +71,13 @@ public class StarField {
 		
 		// Update velocity and angle
 		this.angle = (float) ((this.angle + 0.5f * (tdelta / 1000f)) % (2 * Math.PI));
-		this.xVelocity = (sintable.sin(this.angle) * Conf.STARS_SPEED);
+		this.velocity = (sintable.sin(this.angle) * Conf.STARS_SPEED);
 
 		for(int i=0; i < Conf.STARS_MAX; i++) {
 			Star s = this.stars[i];
 			
 			// Move stars based on z value
-			s.x -= (this.xVelocity / s.z) * (tdelta / 1000f);
+			s.x -= (this.velocity / s.z) * (tdelta / 1000f);
 			s.y -= (Conf.STARS_SPEED / s.z) * (tdelta / 1000f);
 			
 			// Wrap around screen

@@ -83,12 +83,12 @@ public class Game {
 	 * Initialize OpenGL Context
 	 */
 	private void glInit() {
-		//GL11.glDisable(GL11.GL_DEPTH_TEST);
+		GL11.glDisable(GL11.GL_DEPTH_TEST);
 		GL11.glEnable(GL11.GL_BLEND);
 		GL11.glEnable(GL11.GL_TEXTURE_2D);
 		
 		GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
-		//GL11.glClearColor(0.0f, 0.0f, 0.0f, 0.0f); // Black
+		GL11.glClearColor(0.0f, 0.0f, 0.0f, 0.0f); // Black
 		
 		GL11.glMatrixMode(GL11.GL_PROJECTION);
 		GL11.glOrtho(0, Conf.WIDTH, Conf.HEIGHT, 0, -1, 1);
