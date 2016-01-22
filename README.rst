@@ -5,7 +5,7 @@
 About
 -----
 
-A port of Knifa's BaconDemo from C to Java.
+A port of `Knifa's BaconDemo <https://github.com/Knifa/BaconDemo>`_ from C to Java.
 
 How
 ---
